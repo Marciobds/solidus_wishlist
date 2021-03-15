@@ -47,6 +47,34 @@ RSpec.feature 'Wishlist', :js do
       sign_in_as! user
     end
 
+    context 'show', :focus do
+      background do
+        wishlist.wished_products << Spree::WishedProduct.new(variant: product.master)
+      end
+
+      context 'wishlist has a current product' do
+        scenario 'it displays the product' do
+          visit spree.account_path
+          click_link wishlist.name
+
+          expect(page).to have_content(product.name)
+        end
+      end
+
+      context 'wishlist has a discarded product' do
+        background do
+          product.discard
+        end
+
+        scenario 'it does not display the product' do
+          visit spree.account_path
+          click_link wishlist.name
+
+          expect(page).to_not have_content(product.name)
+        end
+      end
+    end
+
     context 'edit' do
       scenario 'edit a wishlists name' do
         visit_edit_wishlist

@@ -29,4 +29,7 @@ pt-BR:
       wishlist_actions: Ações
       wishlists: Lista de Desejos
       your_wishlist_is_empty: A sua lista está vazia
+      take_a_look_at_my_wishlist: "Por favor, dê uma olhada na minha lista de desejos:"
       click_link_to_view_wishlist: 'Clique no link abaixo para visualizar a página %{name}.'
+      quantity: "Quantidade"
+      total: "Total"
